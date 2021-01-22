@@ -8,7 +8,10 @@ Exercise 1
 # - What is the expected vs. the actual output?
 '''
 Expecting there to be an int returned as the largest integer difference
-print 4, as the largest diff between consecutive numbers is between 2 and 6
+
+In the example with list_of_nums being [5, 3, 1, 2, 6, 4]
+The largest diff between consecutive numbers is between 2 and 6
+The expected output should be 4
 
 Actual output is the following error message: 
 '''
@@ -28,7 +31,9 @@ According to the traceback message the error is on line 34
 '''
 # - What can you deduce about the cause of the error?
 '''
-This means that there are invalid indecies 
+That means that the variable i is outside of the bounds of the list. 
+We need to find out why i has a value that's 
+greater than or equal to the length of the list.
 '''
 
 
@@ -37,7 +42,9 @@ This means that there are invalid indecies
 # TODO: State your assumptions here or say them out loud to your partner ...
 # Make sure to be SPECIFIC about what each of your assumptions is!
 '''
-Assumption is that there will be an index out of range error 
+One of the first assumptions made is that the list_of_nums is not empty and therefore has a range of numbers (ints)
+diff is made up of the absolute value of the difference between i (list_of_nums[i]) and the item immeditely following i (list_of_nums[i+1]))
+Then if the diff in that instance is larger than the current largest_diff, then assign diff as the new largest_diff
 '''
 
 def find_largest_diff(list_of_nums):
