@@ -15,6 +15,8 @@ app = Flask(__name__)
 load_dotenv()
 API_KEY = os.getenv('API_KEY')
 
+# given for exercise
+
 
 ################################################
 ## ROUTES

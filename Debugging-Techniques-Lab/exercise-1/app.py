@@ -67,11 +67,11 @@ def pizza_order_submit():
     order_name = request.form.get('name')
     pizza_size_str = request.form.get('size')
     crust_type_str = request.form.get('crust_type')
-    toppings_list = request.form.get('toppings')
+    toppings_list = request.form.getlist('toppings')
 
     pizza = Pizza(
         order_name=order_name,
-        size=pizza_size_str,
+        pizza_size=pizza_size_str,
         crust_type=crust_type_str)
     print(pizza.size)
 
@@ -79,6 +79,7 @@ def pizza_order_submit():
         pizza.toppings.append(PizzaTopping(topping=topping_str))
 
     db.session.add(pizza)
+    db.session.commit() # add to save toppings 
 
     flash('Your order has been submitted!')
     return redirect(url_for('/'))
