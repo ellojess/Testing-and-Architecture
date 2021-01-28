@@ -7,10 +7,10 @@ def replace_substring(sentence, start_str, replace_str):
 
     # Recursive case
     if sentence[:len(start_str)] == start_str:
-        remainder_of_sentence = start_str[len(start_str):]
+        remainder_of_sentence = sentence[len(start_str):]
         return replace_str + replace_substring(remainder_of_sentence, start_str, replace_str)
     else:
-        return sentence[0] + replace_substring(start_str[1:], start_str, replace_str)
+        return sentence[0] + replace_substring(sentence[1:], sentence, replace_str)
 
 
 if __name__ == '__main__':
