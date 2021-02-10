@@ -29,9 +29,11 @@ Used divide and conquer to see where 'topping' was being used
 Found location at: Line 79 
 Led to finding that topping was not added as an attribute type and the form was only looking for crust and size. 
 Also found a url redirect issue (line 84) which can possibly be fixed using the template name or by not using url_form. 
+Afterwards it would seem that nothing was getting saved, this could be fixed by saving the items to the database with session.commit() 
 
 - What assumptions did you have about each line of code, and which ones were proven to be wrong?
-Initial assumption was that after submitting the form via the submit button, the user would be redirected to the home screen with the new order presented on the front page. They were all proven to be wrong with the given issues found listed in the previous question.
+Initial assumption was that after submitting the form via the submit button, the user would be redirected to the home screen with the new order presented on the front page. They were all proven to be wrong with the given issues found listed in the previous question. 
+
 
 ## Exercise 2
 
@@ -48,6 +50,7 @@ Trace back technique, found that the problem is on line 44
 Issue was a result from there being no API key for Open Weather 
 Afterwards there is a geo error because args users_city= should be city= line
 Temperature should also be temp 
+Naming parameter (city name) was also incorrect, according to the documentation from the API, city is q  so that should be updated as well.
 
 - What assumptions did you have about each line of code, and which ones were proven to be wrong?
 Made the assumption that the issue was due to there being no API key for Open Weather, after that was resolved, other errors appeared. Such as using the wrong names in params and args as listed above. 
